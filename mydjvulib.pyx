@@ -6,7 +6,7 @@
 ##
 
 from cpython.bytes cimport PyBytes_FromStringAndSize
-
+import numpy as np
 
 cdef extern from "wrapper.h":
     ctypedef struct djvu_document:
