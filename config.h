@@ -33,7 +33,7 @@
 #define HAVE_FSEEKO 1
 
 /* define if the compiler supports keyword __thread */
-#define HAVE_GCCTLS 1
+#define HAVE_GCCTLS 0
 
 /* Define to 1 if you have the 'gethostname' function. */
 #define HAVE_GETHOSTNAME 1
