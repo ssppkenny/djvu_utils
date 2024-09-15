@@ -1,3 +1,4 @@
+#include "guarded_pool_allocator_tls.h"
 #include "wrapper.h"
 #include "ddjvuapi.h"
 
