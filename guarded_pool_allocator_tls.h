@@ -41,15 +41,15 @@ static_assert(sizeof(ThreadLocalPackedVariables) == sizeof(uint64_t),
               "thread local data does not fit in a uint64_t");
 } // namespace gwp_asan
 
-#ifdef GWP_ASAN_PLATFORM_TLS_HEADER
-#include GWP_ASAN_PLATFORM_TLS_HEADER
-#else
+//#ifdef GWP_ASAN_PLATFORM_TLS_HEADER
+//#include GWP_ASAN_PLATFORM_TLS_HEADER
+//#else
 namespace gwp_asan {
-inline ThreadLocalPackedVariables *getThreadLocals() {
+ThreadLocalPackedVariables *getThreadLocals() {
   alignas(8) static GWP_ASAN_TLS_INITIAL_EXEC ThreadLocalPackedVariables Locals;
   return &Locals;
 }
 } // namespace gwp_asan
-#endif // GWP_ASAN_PLATFORM_TLS_HEADER
+//#endif // GWP_ASAN_PLATFORM_TLS_HEADER
 
 #endif // GWP_ASAN_GUARDED_POOL_ALLOCATOR_TLS_H_
