@@ -5,8 +5,8 @@ from PIL import Image
 
 def get_image(pageno, filepath):
     bs, w, h = mydjvulib.get_page(pageno, filepath)
-    arr = np.frombuffer(bs, dtype=np.int8).reshape((w, h))
-    img = Image.fromarray(arr)
+    arr = np.frombuffer(bs, dtype=np.int8).reshape((h, w))
+    img = Image.fromarray(arr, "L")
     return img
 
 

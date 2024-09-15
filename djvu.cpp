@@ -2,6 +2,13 @@
 #include "wrapper.h"
 #include "ddjvuapi.h"
 
+namespace gwp_asan {
+ThreadLocalPackedVariables *getThreadLocals() {
+  alignas(8) static GWP_ASAN_TLS_INITIAL_EXEC ThreadLocalPackedVariables Locals;
+  return &Locals;
+}
+}
+
 void handleMessages(ddjvu_context_t *ctx) {
     const ddjvu_message_t *msg;
     while ((msg = ddjvu_message_peek(ctx))) {
